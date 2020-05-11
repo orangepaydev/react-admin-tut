@@ -1,0 +1,16 @@
+# Configuration file
+backend:
+  prop1: "Hello"
+
+
+# datasource configuration
+quarkus:
+  datasource:
+    db-kind: 'mysql'
+    username: 'pieuser'
+    password: 'piepwd'
+    jdbc:
+      url: 'jdbc:mysql://localhost:3306/piedb'
+  hibernate-orm:
+    database:
+      generation: 'drop-and-create'

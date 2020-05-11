@@ -13,20 +13,23 @@ import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
-function checkPermission (permissions: any, target:any): any  {
+function checkPermission (target:any): any  {
+  const permissions = localStorage.getItem("token") == null ? "" : localStorage.getItem("token");
   return permissions == 'admin' ? target : null;
 }
+function isProd(targetProd:any, targetNonProd:any) {
 
-function App() {
-  const permissions = localStorage.getItem("token") == null ? "" : localStorage.getItem("token");
-  
+}
+
+function App() {  
   return (
     <Admin dashboard={Dashboard} dataProvider={dataProvider} authProvider={CustomAuthProvider}>
       {
         [
-           <Resource name="users" list={UserList} edit={checkPermission(permissions, EditGuesser)} icon={UserIcon}/>,
-           checkPermission(permissions, <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon}/>),
-           <Resource name="tags" />
+           <Resource name="users" list={UserList} edit={checkPermission(EditGuesser)} icon={UserIcon}/>,
+           checkPermission(<Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon}/>),
+           isProd(<checkbox name="tags" />, <radiobutton name="tags" />)
+           
         ].filter(e => {
           return e == null ? false : true
         })
