@@ -16,6 +16,10 @@ class UserService {
         em.persist(user)
     }
 
+    fun getUser(userId: Long): User? {
+        return em.find(User::class.java, userId)
+    }
+
     fun getUser(userEmail: String): User? {
         val query = em.createQuery("select user from User user where user.email = ?1", User::class.java)
         query.setParameter(1, userEmail)
