@@ -13,7 +13,7 @@ import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
 
 @Path("/auth")
-class BatchController {
+class AuthController {
 
     @Inject
     lateinit var gson: Gson
