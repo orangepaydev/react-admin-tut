@@ -10,6 +10,8 @@ import { PostCreate, PostEdit } from './PostEdit'
 import CustomAuthProvider from './AuthProvider'
 
 import PostIcon from '@material-ui/icons/Book';
+import Checkbox from '@material-ui/core/Checkbox';
+import Radio from '@material-ui/core/Radio';
 import UserIcon from '@material-ui/icons/Group';
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
@@ -28,7 +30,7 @@ function App() {
         [
            <Resource name="users" list={UserList} edit={checkPermission(EditGuesser)} icon={UserIcon}/>,
            checkPermission(<Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon}/>),
-           isProd(<checkbox name="tags" />, <radiobutton name="tags" />)
+           isProd(<Checkbox name="tags" />, <Radio name="tags" />)
            
         ].filter(e => {
           return e == null ? false : true
