@@ -8,7 +8,11 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 You can run your application in dev mode that enables live coding using:
 ```
+Linux/MacOsx:
 ./gradlew quarkusDev
+
+Windows:
+gradlew.bat quarkusDev
 ```
 
 ## Packaging and running the application
