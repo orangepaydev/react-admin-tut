@@ -17,6 +17,7 @@ const UserList: React.FunctionComponent<{}> = (props) => {
             <UrlField source="website" />
             <MyUrlField source="website" />
             <TextField source="company.name" />
+            <TextField source="status" />
         </Datagrid>
     </List>
 };
